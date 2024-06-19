@@ -1,6 +1,5 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, mixins, status, viewsets
-from rest_framework.exceptions import ValidationError
+from rest_framework import filters, mixins, viewsets
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
@@ -24,17 +23,9 @@ class FollowViewSet(mixins.ListModelMixin,
     search_fields = ('following__username',)
 
     def get_queryset(self):
-
         return Follow.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        if Follow.objects.filter(
-                user=self.request.user,
-                following=serializer.validated_data['following']).exists():
-            raise ValidationError(status.HTTP_400_BAD_REQUEST)
-        if serializer.validated_data['following'] == self.request.user:
-            raise ValidationError(status.HTTP_400_BAD_REQUEST)
-
         serializer.save(user=self.request.user)
 
 
