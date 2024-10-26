@@ -1,21 +1,13 @@
 # Описание
 
-Этот проект предоставляет REST API для взаимодействия с приложением Yatube.
+Этот проект предоставляет REST API для взаимодействия с приложением платформы для блогов.
 
 
 ## Как запустить проект:
 
-Клонируйте репозиторий и перейдите в него в командной строке:
+Клонируйте репозиторий и перейдите в его директорию в командной строке:
 
-```
-git clone https://github.com/<ваш никнейм>/api_final_yatube.git
-```
-
-```
-cd api_final_yatube
-```
-
-Cоздать и активировать виртуальное окружение:
+Cоздайте и активируйте виртуальное окружение:
 
 ```
 python3 -m venv env
@@ -25,7 +17,7 @@ python3 -m venv env
 source env/bin/activate
 ```
 
-Установить зависимости из файла requirements.txt:
+Установите зависимости из файла requirements.txt:
 
 ```
 python3 -m pip install --upgrade pip
@@ -35,7 +27,7 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Выполните миграции:
 
 ```
 python3 manage.py migrate
@@ -64,79 +56,59 @@ http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
 ```
 
-### В директории `postman_collection` находится Postman коллекция запросов `Yatube_API.postman_collection.json` для удобного тестирования API.
+### В директории `postman_collection` находится Postman коллекция запросов для удобного тестирования API.
 ### Полная документация к API проекта в Redoc доступна по адресу: `http://127.0.0.1:8000/redoc/`
 
 
 
 # Description
 
-This project provides a REST API for interaction with the Yatube application.
+This project provides a REST API for interacting with a blogging platform application.
 
+## How to Run the Project
 
-## How to run the project:
-
-Clone the repository and navigate to it in the command line:
-
-```
-git clone https://github.com/<ваш никнейм>/api_final_yatube.git
-```
-
-```
-cd api_final_yatube
-```
+Clone the repository and navigate to its directory in the command line:
 
 Create and activate a virtual environment:
-
 ```
 python3 -m venv env
 ```
-
 ```
 source env/bin/activate
 ```
-
-Install dependencies from the requirements.txt file:
-
+Install the dependencies from requirements.txt:
 ```
 python3 -m pip install --upgrade pip
 ```
-
 ```
 pip install -r requirements.txt
 ```
 
-Run migrations:
-
+Apply the migrations:
 ```
 python3 manage.py migrate
 ```
+## API Request Examples
 
-
-## API request examples
-
-Get a list of all posts. When specifying the limit and offset parameters, output should work with pagination:
+Get a list of all posts. When specifying limit and offset parameters, the output should support pagination: 
 ```
 GET http://127.0.0.1:8000/api/v1/posts/
 ```
 
-Get a post by id:
+Get a post by its id: 
 ```
 http://127.0.0.1:8000/api/v1/posts/{id}/
 ```
 
-Get all comments for a post:
+Get all comments on a post: 
 ```
 http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 ```
 
-Get a comment for a post by id:
+Get a comment by its id for a specific post: 
 ```
 http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/{id}/
 ```
 
-### The `postman_collection` directory contains a Postman collection of requests `Yatube_API.postman_collection.json` for convenient API testing.
-### Full API documentation in Redoc is available at: `http://127.0.0.1:8000/redoc/`
-
-
-
+### In the postman_collection directory, there is a Postman collection of requests for convenient API testing. 
+### Full API documentation for the project is available in Redoc at: http://127.0.0.1:8000/redoc/
